@@ -39,12 +39,12 @@ public class Control : MonoBehaviour
     public void ChangeToDNA()
     {
         DNA_Area.SetActive(true);
-        DNA_Background.SetActive(true);
+        //DNA_Background.SetActive(true);
         DNA_Button.SetActive(true);
 
 
         Nucleous_Area.SetActive(false);
-        Nucleous_Background.SetActive(false);
+        //Nucleous_Background.SetActive(false);
     }
 
 
@@ -55,7 +55,7 @@ public class Control : MonoBehaviour
 
 
         DNA_Area.SetActive(false);
-        DNA_Background.SetActive(false);
+        //DNA_Background.SetActive(false);
         DNA_Button.SetActive(false);
     }
 }
