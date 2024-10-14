@@ -41,12 +41,14 @@ public class CameraZoom : MonoBehaviour
             Control.instance.ChangeToDNA();
             dna = true;
             nucleos = false;
+            newZoom = maxZoom - 5;
         }
         else if (newZoom > maxZoom && !nucleos)
         {
             Control.instance.ChangeToNucleous();
             dna = false;
             nucleos = true;
+            newZoom = minZoom + 5;
         }
 
         newZoom = Mathf.Clamp(newZoom, minZoom, maxZoom);

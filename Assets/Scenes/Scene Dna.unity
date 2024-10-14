@@ -481,7 +481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &239056433
 RectTransform:
   m_ObjectHideFlags: 0
@@ -626,6 +626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 482613247}
+  - component: {fileID: 482613248}
   m_Layer: 0
   m_Name: Objects
   m_TagString: Untagged
@@ -650,6 +651,20 @@ Transform:
   - {fileID: 2146980170}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &482613248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482613246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f490510cb2f4c4ca9853df5734ee95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeRotacao: 100
+  objectToRotate: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1120,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1186417213}
   - component: {fileID: 1186417212}
-  - component: {fileID: 1186417214}
   - component: {fileID: 1186417215}
   - component: {fileID: 1186417216}
   m_Layer: 0
@@ -1134,7 +1148,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 482613247}
-  m_Follow: {fileID: 482613247}
+  m_Follow: {fileID: 0}
   m_CommonLens: 1
   m_Lens:
     FieldOfView: 87.81
@@ -1238,19 +1252,6 @@ Transform:
   - {fileID: 1332736817}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1186417214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1186417211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1d68f64feb2cfd40a0c11c4cc54bf87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  freeLookCamera: {fileID: 1186417212}
 --- !u!114 &1186417215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1265,8 +1266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   freeLookCamera: {fileID: 1186417212}
   changeScene: {fileID: 0}
-  zoomSpeed: 400
-  minZoom: 50
+  zoomSpeed: 500
+  minZoom: 60
   maxZoom: 100
 --- !u!114 &1186417216
 MonoBehaviour:
@@ -1299,7 +1300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1199008359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1627,7 +1628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1354155039
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1914,10 +1915,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1199008359}
   - {fileID: 433191010}
   - {fileID: 1354155039}
   - {fileID: 239056433}
+  - {fileID: 1199008359}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1955,7 +1956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DNA_Area: {fileID: 1839087220}
-  DNA_Background: {fileID: 0}
+  DNA_Background: {fileID: 239056432}
   DNA_Button: {fileID: 1199008358}
   Nucleous_Area: {fileID: 2146980171}
   Nucleous_Background: {fileID: 1354155038}
@@ -2005,7 +2006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1839087221
 Transform:
   m_ObjectHideFlags: 0
@@ -2216,7 +2217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4e590e267e100e346b8bf5b71b6d16a2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
