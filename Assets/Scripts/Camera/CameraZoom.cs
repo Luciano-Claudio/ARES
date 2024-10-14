@@ -3,26 +3,10 @@ using Cinemachine;
 
 public class CameraZoom : MonoBehaviour
 {
-    public CinemachineFreeLook freeLookCamera; // Referência para a Cinemachine FreeLook Camera
-    public ChangeScene changeScene;
-    public float zoomSpeed = 200f; // Velocidade do zoom
-    public float minZoom = 2f; // Valor mínimo de zoom (mais próximo)
-    public float maxZoom = 10f; // Valor máximo de zoom (mais distante)
-
-    private bool nucleos;
-    private bool dna;
-
-
+    float newZoom;
     void Start()
     {
-        if (freeLookCamera == null)
-        {
-            freeLookCamera = GetComponent<CinemachineFreeLook>();
-        }
-        changeScene = GetComponent<ChangeScene>();
-
-        nucleos = true;
-        dna = false;
+        newZoom = 41f;
     }
 
     void Update()
@@ -32,28 +16,12 @@ public class CameraZoom : MonoBehaviour
 
     void ZoomCamera()
     {
-        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
-        float newZoom = freeLookCamera.m_Lens.FieldOfView - scrollInput * zoomSpeed * Time.deltaTime;
+        newZoom = Control.instance.zoom;
+        Vector3 currentPosition = transform.rotation.eulerAngles;
+        currentPosition.z = newZoom;
 
-        if (newZoom < minZoom && !dna)
-        {
-            Control.instance.ChangeToDNA();
-            dna = true;
-            nucleos = false;
-            newZoom = maxZoom - 5;
-        }
-        else if (newZoom > maxZoom && !nucleos)
-        {
-            Control.instance.ChangeToNucleous();
-            dna = false;
-            nucleos = true;
-            newZoom = minZoom + 5;
-        }
-
-        newZoom = Mathf.Clamp(newZoom, minZoom, maxZoom);
-
-        freeLookCamera.m_Lens.FieldOfView = newZoom;
+        transform.position = currentPosition;
     }
 
 }

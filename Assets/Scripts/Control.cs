@@ -1,12 +1,24 @@
 using UnityEngine;
-using Cinemachine;
+using UnityEngine.XR.Management;
 
 public class Control : MonoBehaviour
 {
+    [Header("Control")]
+    public bool DNA_Change = false;
+    public bool Nucleo_Change = true;
+    public bool Swap_DNA = false;
+    [Range(-70, -40)]
+    public float zoom = 70;
+    [Range(-180, 180)]
+    public float rotacao;
+
+
     [Header("DNA")]
     public GameObject DNA_Area;
     public GameObject DNA_Background;
-    public GameObject DNA_Button;
+
+    public GameObject DNA;
+    public GameObject DNAComplete;
 
 
     [Header("Nucleous")]
@@ -14,8 +26,6 @@ public class Control : MonoBehaviour
     public GameObject Nucleous_Background;
 
 
-    [Header("Camera")]
-    public CinemachineFreeLook freeLookCamera; // Referência para a Cinemachine FreeLook Camera
 
 
 
@@ -34,13 +44,30 @@ public class Control : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    void Start()
+    {
+        // Verifica se o XR está habilitado e inicializa se não estiver
+        if (!XRGeneralSettings.Instance.Manager.isInitializationComplete)
+        {
+            XRGeneralSettings.Instance.Manager.InitializeLoaderSync();
+            XRGeneralSettings.Instance.Manager.StartSubsystems();
+        }
+    }
+
+    private void Update()
+    {
+        if (DNA_Change) ChangeToDNA();
+        if (Nucleo_Change) ChangeToNucleous();
+        SwapDNA(Swap_DNA);
+
+
+    }
 
 
     public void ChangeToDNA()
     {
         DNA_Area.SetActive(true);
         DNA_Background.SetActive(true);
-        DNA_Button.SetActive(true);
 
 
         Nucleous_Area.SetActive(false);
@@ -56,6 +83,18 @@ public class Control : MonoBehaviour
 
         DNA_Area.SetActive(false);
         DNA_Background.SetActive(false);
-        DNA_Button.SetActive(false);
+    }
+    public void SwapDNA(bool Swap)
+    {
+        if (!Swap)
+        {
+            DNA.SetActive(false);
+            DNAComplete.SetActive(true);
+        }
+        else
+        {
+            DNAComplete.SetActive(false);
+            DNA.SetActive(true);
+        }
     }
 }
